@@ -1,0 +1,15 @@
+version: '3.9'
+
+services: 
+  typeORM_pg:
+    image: postgres:16.3
+    container_name: typeORM_pg
+    restart: always
+    environment: 
+      POSTGRES_DB: typeORMDB
+      POSTGRES_USER: jsanabrh
+      POSTGRES_PASSWORD: secret1234
+    volumes: 
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
